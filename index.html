@@ -175,7 +175,7 @@
                     id="cta-button"
                     class="cta-button w-full flex items-center justify-center py-4 px-6 text-white rounded-full transition duration-300"
                 >
-                    <span id="cta-text">Opening WhatsApp in... 3s 🚀</span>
+                    <span id="cta-text">Opening WhatsApp in... 1s 🚀</span>
                 </button>
             </a>
             <p class="text-center text-xs mt-3 text-gray-400">If redirection doesn't work, tap the button above.</p>
@@ -208,7 +208,7 @@
             document.getElementById('cta-button').disabled = false;
         }
 
-        // Function for 3-second automatic redirection
+        // Function for 1-second automatic redirection
         function autoRedirect(seconds) {
             const ctaButtonText = document.getElementById('cta-text');
             const ctaLink = document.getElementById('cta-link');
@@ -234,7 +234,7 @@
                     // Trigger the link
                     window.location.href = ctaLink.href;
                 }
-            }, 1000);
+            }, 1000); // This interval is 1 second, the initial count sets the duration.
             
             // Allow user to click immediately if they don't want to wait
             ctaLink.onclick = () => {
@@ -252,10 +252,8 @@
         window.onload = function() {
             updateCtaLink(); // Set the correct link with the default message
             console.log("App Initialized. Starting automatic redirect.");
-            autoRedirect(3); // Start the 3-second countdown
+            autoRedirect(1); // Start the 1-second countdown
         }
     </script>
 </body>
 </html>
-
-
