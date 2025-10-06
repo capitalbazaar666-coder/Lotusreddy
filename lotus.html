@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BOOK ANNA - Secure Chat</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom styles for the dark, immersive background and neon effects */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0d1117; /* Dark background fallback */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        /* Simulate the blurred stadium background. */
+        .stadium-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /* BACKGROUND IMAGE PATH: Updated to 'images/stadium_background.jpg' */
+            background-image: url('./images/stadium_background.jpg'); 
+            background-size: cover;
+            background-position: center;
+            filter: blur(2px) brightness(0.7); /* Maintain the blur effect */
+            z-index: -1;
+        }
+        
+        /* Dark overlay to enhance the card contrast */
+        .stadium-bg::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+        }
+
+        .card {
+            backdrop-filter: blur(10px);
+            background-color: rgba(18, 18, 18, 0.75); /* Semi-transparent dark card */
+            box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            min-height: 60vh; 
+            max-width: 400px; /* Mobile-first width */
+            width: 90%;
+            animation: fadeIn 1s ease-out;
+            padding-bottom: 3rem; 
+        }
+
+        /* Neon Glow effect for the logo ring */
+        .neon-ring {
+            border: 2px solid #57fa78; /* Initial green border */
+            box-shadow: 0 0 10px #22c55e, 0 0 20px #22c55e, inset 0 0 5px #22c55e;
+            transition: all 0.3s ease;
+        }
+
+        .neon-ring:hover {
+            box-shadow: 0 0 15px #34d399, 0 0 30px #34d399, inset 0 0 8px #34d399;
+        }
+        
+        /* --- STICKER/CTA BUTTON STYLES --- */
+        .cta-button {
+            /* Base button style */
+            background-color: #25D366; 
+            font-weight: 900; 
+            font-size: 1.25rem; 
+            border: 4px solid #34d399; 
+            min-height: 64px;
+            padding-top: 1.25rem;
+            padding-bottom: 1.25rem;
+            
+            /* Intense Glow and Shadow */
+            box-shadow: 0 0 15px rgba(37, 211, 102, 1), 0 6px 15px rgba(0, 0, 0, 0.4); 
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            
+            /* Sticker Bounce Animation: Applied by default */
+            animation: sticker-bounce 2.5s infinite ease-in-out;
+            transform: translateZ(0); 
+        }
+        
+        .cta-button:hover {
+            /* Stronger hover glow and slight lift */
+            box-shadow: 0 0 25px rgba(74, 222, 128, 1), 0 8px 20px rgba(0, 0, 0, 0.5);
+            transform: translateY(-4px) scale(1.03) rotate(0deg); 
+            animation: none; /* Stop jiggle on hover */
+        }
+        
+        /* Updated Sticker Bounce Animation */
+        @keyframes sticker-bounce {
+            0%, 100% {
+                transform: translateY(0) rotate(-0.5deg);
+            }
+            25% {
+                transform: translateY(-3px) rotate(0.5deg); 
+            }
+            50% {
+                transform: translateY(0) rotate(0.5deg); 
+            }
+            75% {
+                transform: translateY(-2px) rotate(-0.5deg); 
+            }
+        }
+        
+        /* Animation for subtle entry */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '882738077876855');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=882738077876855&ev=PageView&noscript=1"
+    /></noscript>
+    </head>
+<body>
+
+    <div class="stadium-bg"></div>
+
+    <div id="main-card" class="card rounded-2xl p-6 flex flex-col justify-between">
+        
+        <div class="flex flex-col items-center mb-10 pt-6">
+            <div class="flex items-center space-x-3">
+                <span class="text-2xl font-bold text-white">WhatsApp</span>
+            </div>
+        </div>
+
+        <div class="flex flex-col items-center justify-center flex-grow">
+            
+            <div class="relative w-40 h-40 rounded-full p-2 flex items-center justify-center neon-ring">
+                
+                <div class="w-full h-full bg-black rounded-full flex flex-col items-center justify-center shadow-lg p-4">
+                    <img
+                        /* LOGO IMAGE PATH: Updated to 'images/imageyour_logo.png' */
+                        src="./images/imageyour_logo.png"
+                        onerror="this.onerror=null; this.src='https://placehold.co/120x120/000000/ffffff?text=BOOK+ANNA';"
+                        alt="Company Logo"
+                        class="w-full h-full object-contain rounded-full"
+                    >
+                </div>
+            </div>
+            
+            <h1 class="text-white text-3xl font-extrabold mt-6 mb-2 text-center">
+                GET ID NOW
+            </h1>
+            <p class="text-gray-400 text-sm text-center mb-10">
+                You'll be redirected to chat with us in just a moment.
+            </p>
+        </div>
+        
+        <div class="mt-4 pb-2">
+            <a id="cta-link" href="#" target="_blank" rel="noopener noreferrer">
+                <button 
+                    id="cta-button"
+                    class="cta-button w-full flex items-center justify-center py-4 px-6 text-white rounded-full transition duration-300"
+                >
+                    <span id="cta-text">Opening WhatsApp in... 3s 🚀</span>
+                </button>
+            </a>
+            <p class="text-center text-xs mt-3 text-gray-400">If redirection doesn't work, tap the button above.</p>
+        </div>
+
+    </div>
+    
+    <script>
+        // --- Configuration ---
+        // WhatsApp Number (Updated to Indian number)
+        const WHATSAPP_PHONE_NUMBER = '918425890638'; 
+        
+        // Default Message - Set to Thai/English friendly greeting
+        const DEFAULT_MESSAGE = "Hello,i want 🆔";
+
+        // Function to update the WhatsApp link
+        function updateCtaLink() {
+            const ctaLink = document.getElementById('cta-link');
+            
+            if (!WHATSAPP_PHONE_NUMBER) {
+                ctaLink.href = '#';
+                document.getElementById('cta-text').textContent = '⚠️ Error: Number Missing';
+                document.getElementById('cta-button').disabled = true;
+                return;
+            }
+
+            const encodedMessage = encodeURIComponent(DEFAULT_MESSAGE);
+            const whatsappLink = `https://wa.me/${WHATSAPP_PHONE_NUMBER}?text=${encodedMessage}`;
+            ctaLink.href = whatsappLink;
+            document.getElementById('cta-button').disabled = false;
+        }
+
+        // Function for 3-second automatic redirection
+        function autoRedirect(seconds) {
+            const ctaButtonText = document.getElementById('cta-text');
+            const ctaLink = document.getElementById('cta-link');
+
+            let count = seconds;
+            
+            // Set initial text before countdown
+            ctaButtonText.innerHTML = `Opening WhatsApp in... ${count}s 🚀`;
+
+            const timer = setInterval(() => {
+                count--;
+                ctaButtonText.innerHTML = `Opening WhatsApp in... ${count}s 🚀`;
+                
+                if (count <= 0) {
+                    clearInterval(timer);
+                    ctaButtonText.innerHTML = 'Redirecting Now...';
+                    
+                    // Trigger Pixel Lead Event before redirecting
+                    if (typeof fbq === 'function') {
+                        fbq('track', 'Lead');
+                    }
+                    
+                    // Trigger the link
+                    window.location.href = ctaLink.href;
+                }
+            }, 1000);
+            
+            // Allow user to click immediately if they don't want to wait
+            ctaLink.onclick = () => {
+                // Trigger Pixel Lead Event on click
+                if (typeof fbq === 'function') {
+                    fbq('track', 'Lead');
+                }
+                clearInterval(timer);
+                return true; // Allow link navigation
+            };
+        }
+
+
+        // Initialize on load and start the redirect
+        window.onload = function() {
+            updateCtaLink(); // Set the correct link with the default message
+            console.log("App Initialized. Starting automatic redirect.");
+            autoRedirect(3); // Start the 3-second countdown
+        }
+    </script>
+</body>
+</html>
+
